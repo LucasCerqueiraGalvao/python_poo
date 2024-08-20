@@ -38,7 +38,7 @@ if __name__ == "__main__":
     '''
     Controlando o carro até ele atingir 10000 Km
     '''
-    while carro1.odometro < 600 and carro2.odometro < 600:
+    while (carro1.odometro < 600 and carro2.odometro < 600) and (carro1.tanque > 0 or carro2.tanque > 0):
         try:    
             op = 0
             while op not in (1,2):
@@ -62,4 +62,6 @@ if __name__ == "__main__":
             print ("O Carro 1 venceu!!!")
         else:
             print ("O Carro 2 venceu!!!")
+    else:
+        print ("os dois carros ficaram sem gasolina")
 
