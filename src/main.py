@@ -23,15 +23,17 @@ if __name__ == "__main__":
     nm_modelo = input('Digite o modelo: ')
     nm_marca = input('Digite a marca: ')
     nm_cor = input('Digite a cor: ')
+    nm_consumo = float (input ('Digite o consumo médio:'))
 
-    carro1 = Carro(nm_modelo, nm_marca, nm_cor, 0, motor = False)
+    carro1 = Carro(nm_modelo, nm_marca, nm_cor, 0, False, nm_consumo, 100)
 
     print('Cadastre um carro')
     nm_modelo = input('Digite o modelo: ')
     nm_marca = input('Digite a marca: ')
     nm_cor = input('Digite a cor: ')
+    nm_consumo = float (input('Digite o consumo médio:'))
 
-    carro2 = Carro(nm_modelo, nm_marca, nm_cor, 0, motor = False)
+    carro2 = Carro(nm_modelo, nm_marca, nm_cor, 0, False, nm_consumo, 100)
 
     '''
     Controlando o carro até ele atingir 10000 Km
@@ -47,10 +49,17 @@ if __name__ == "__main__":
                     operarcarro(carro2)
             print('Infos atuais do carro')
             print(carro1)
+            print(carro2)
         except Exception as e:
             print("Erro!")
             print(e)
 
     carro1.desligar()
     carro2.desligar()
+
+    if carro1.odometro > 600 or carro2.odometro > 600:
+        if op == 1:
+            print ("O Carro 1 venceu!!!")
+        else:
+            print ("O Carro 2 venceu!!!")
 
