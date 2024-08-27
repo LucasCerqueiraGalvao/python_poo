@@ -1,0 +1,28 @@
+Setar os carros:
+
+modelo a
+marca a
+cor a
+10
+modelo b
+marca b
+cor b
+100
+
+Movimentar os carros
+1
+1
+2
+1
+1
+3
+20
+20
+2
+3
+100
+10
+
+
+
+
