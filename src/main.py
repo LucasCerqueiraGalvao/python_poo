@@ -38,7 +38,7 @@ if __name__ == "__main__":
     '''
     Controlando o carro até ele atingir 10000 Km
     '''
-    while (carro1.odometro < 600 and carro2.odometro < 600) and (carro1.tanque > 0 or carro2.tanque > 0):
+    while (carro1.get_odometro() < 600 and carro2.get_odometro() < 600) and (carro1.get_tanque() > 0 or carro2.get_tanque() > 0):
         try:    
             op = 0
             while op not in (1,2):
@@ -54,14 +54,21 @@ if __name__ == "__main__":
             print("Erro!")
             print(e)
 
-    carro1.desligar()
-    carro2.desligar()
+    # carro1.desligar()
+    # carro2.desligar()
 
-    if carro1.odometro > 600 or carro2.odometro > 600:
+    if carro1.get_odometro() > 600 or carro2.get_odometro() > 600:
         if op == 1:
             print ("O Carro 1 venceu!!!")
         else:
             print ("O Carro 2 venceu!!!")
     else:
         print ("os dois carros ficaram sem gasolina")
+
+    try:
+        with open ('carros.pkt', 'wb') as arquivo:
+            pickle.dump(carros, arquivo)
+    except Exception as e:
+        print (e)
+        
 
