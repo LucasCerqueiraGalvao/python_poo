@@ -4,6 +4,7 @@ from eleicao import Urna
 def iniciar_urna(eleitores, candidatos):
     print("Iniciando Urna")
     print("==============")
+
     secao = int(input("Número da secao: "))
     zona = int(input("Número da zona: "))
 
@@ -13,7 +14,9 @@ def iniciar_urna(eleitores, candidatos):
 
     mesario = Pessoa(nome_mes, rg_mes, cpf_mes)
 
-    return Urna(mesario, secao, zona, candidatos, eleitores)
+    urna = Urna(mesario, secao, zona, candidatos, eleitores)
+
+    return urna 
 
 def votar(urna : Urna):
     titulo_eleitor = int(input("Digite o titulo do eleitor: "))

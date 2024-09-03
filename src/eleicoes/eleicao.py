@@ -1,6 +1,7 @@
 import pickle
 from typing import List
 from common import *
+from datetime import date
 
 class Urna:
     mesario : Pessoa
@@ -46,8 +47,18 @@ class Urna:
             pickle.dump(self.__votos, arquivo)
 
     def __str__(self):
-        info = (f'Urna da seção {self.__secao}, zona {self.__zona}\n'
-                f'Mesario {self.mesario}\n')
+        info = f'Urna da seção {self.__secao}, zona {self.__zona}\nMesario {self.mesario}\n\n'
+                
+        data_atual = date.today()
+        info += f'{data_atual.ctime()}\n'
+        for k, v in self.__votos.items():
+            info += f'Candidato {k} = {v} votos\n'
+
+        return info
+    
+    def zerisima (self):
+        with open ('zerisima_'+self.__nome_arquivo, 'wb') as arquivo:
+            pickle.dump(self.__votos, arquivo)
 
 
 
